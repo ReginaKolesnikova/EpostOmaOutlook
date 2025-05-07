@@ -23,11 +23,11 @@ def send_email():
     smtp_server = "smtp.gmail.com"
     port = 587
     sender_email = "rkolesnikova251@gmail.com"
-    password = "gkcp vlni xlnt pfla" #hide it
+    password = "gkcp vlni xlnt pfla" #(need to hide it later)
     context = ssl.create_default_context()
     msg = EmailMessage()
     msg.set_content(message_content)
-    msg['Subject'] = "Sending an Email"
+    msg['Subject'] = subject_box.get()
     msg['From'] = "Regina Kolesnikova"
     msg['To'] = ", ".join(recipient)
     
@@ -88,6 +88,11 @@ email_label = Label(root, text="To: (separate with commas if multiple recievers)
 email_label.pack(pady=5)
 email_box = Entry(root, width=40)
 email_box.pack(pady=5)
+
+subject_label = Label(root, text="Subject:")
+subject_label.pack(pady=5)
+subject_box = Entry(root, width=40)
+subject_box.pack(pady=5)
 
 message_label = Label(root, text="Message text: ")
 message_label.pack(pady=5)
